@@ -1,0 +1,20 @@
+{
+  "name": "monorepo-gatsby",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "develop:blog": "yarn workspace blog develop",
+    "develop:core": "yarn workspace core develop",
+    "develop:all": "yarn dlx concurrently -n core,blog \"yarn develop:core -p 8002\" \"yarn develop:blog -p 8001\"",
+    "build:blog": "yarn workspace blog build",
+    "build:core": "yarn workspace core build",
+    "build:all": "yarn dlx concurrently -n core,blog \"yarn build:core\" \"yarn build:blog\""
+  },
+  "workspaces": [
+    "blog",
+    "core",
+    "shared"
+  ],
+  "packageManager": "yarn@3.0.1-rc.2"
+}
